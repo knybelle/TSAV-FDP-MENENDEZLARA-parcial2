@@ -10,7 +10,7 @@ public class CharacterMovement : MonoBehaviour
     public float playerSpeed = 2.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
-    private float velocidadGiro = 0.005f;
+    public float velocidadGiro = 1.2f;
     public Vector3 move;
 
     private void Start()
@@ -31,7 +31,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (move != Vector3.zero && Input.GetAxis("Vertical") >= 0)
         {
-            gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward, move, velocidadGiro);
+            gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward, move, velocidadGiro * Time.deltaTime);
         }
 
         // Changes the height position of the player..
